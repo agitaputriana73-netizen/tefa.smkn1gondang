@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEFA SMKN 1 Gondang Nganjuk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .header-info {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #27ae60;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 0.5rem;
+        }
+
+        .tefa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tefa-card {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            color: white;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tefa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .tefa-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tefa-card p {
+            line-height: 1.8;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #27ae60;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #27ae60;
+            margin-bottom: 0.75rem;
+        }
+
+        .program-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .program-list li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #2ecc71;
+            transition: all 0.3s;
+        }
+
+        .program-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(39, 174, 96, 0.1) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .hero h2 {
+            border: none;
+            color: #27ae60;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li a {
+                border-bottom: 1px solid #eee;
+            }
+
+            .tefa-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏭 TEFA SMKN 1 GONDANG</h1>
+            <p>Teaching Factory - Sekolah Menengah Kejuruan Negeri 1 Gondang</p>
+            <div class="header-info">
+                <p>📍 JL. Raya Gondang Lengkong, Balong Gebang, Kec. Gondang, Kab. Nganjuk, Jawa Timur</p>
+                <p>🏆 Akreditasi A | 🌟 Sertifikasi ISO 9001:2000</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil Sekolah</a></li>
+            <li><a href="#tentang">Tentang TEFA</a></li>
+            <li><a href="#program">Program Keahlian</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="hero" id="beranda">
+            <h2>Selamat Datang di TEFA SMKN 1 Gondang</h2>
+            <p>Teaching Factory adalah konsep pembelajaran berbasis produksi/layanan yang mengacu pada standar industri dan dilaksanakan dalam suasana seperti yang terjadi di industri.</p>
+        </div>
+
+        <section id="profil">
+            <h2>📖 Profil SMKN 1 Gondang</h2>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>1384+</h3>
+                    <p>Siswa Aktif</p>
+                </div>
+                <div class="stat-card">
+                    <h3>82</h3>
+                    <p>Guru Profesional</p>
+                </div>
+                <div class="stat-card">
+                    <h3>7+</h3>
+                    <p>Program Keahlian</p>
+                </div>
+                <div class="stat-card">
+                    <h3>A</h3>
+                    <p>Akreditasi</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Tentang SMKN 1 Gondang</h3>
+                <p><strong>SMKN 1 Gondang</strong> didirikan pada tahun 1970 dan merupakan salah satu Sekolah Menengah Kejuruan terkemuka di Kabupaten Nganjuk. Dengan akreditasi A dan sertifikasi ISO 9001:2000, sekolah ini berkomitmen memberikan pendidikan kejuruan berkualitas yang mempersiapkan lulusan siap kerja dan berdaya saing tinggi.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Kepemimpinan</h3>
+                <p><strong>Kepala Sekolah:</strong> Eko Cahyono</p>
+                <p><strong>Operator:</strong> Kushanto</p>
+            </div>
+        </section>
+
+        <section id="tentang">
+            <h2>📚 Tentang TEFA</h2>
+            <p>Teaching Factory (TEFA) di SMKN 1 Gondang adalah program pembelajaran inovatif yang memadukan proses pendidikan dengan pengalaman kerja nyata di lingkungan yang menyerupai industri.</p>
+            
+            <div class="info-box">
+                <h3>Visi TEFA</h3>
+                <p>Menjadi pusat pembelajaran berbasis industri yang menghasilkan lulusan kompeten, profesional, dan siap bersaing di dunia kerja global dengan mengedepankan bidang pertanian dan teknologi rekayasa.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Misi TEFA</h3>
+                <p>Menyelenggarakan pembelajaran yang berorientasi pada produksi dan layanan sesuai standar industri, mengembangkan jiwa kewirausahaan siswa, dan membangun kemitraan dengan dunia usaha dan industri di bidang pertanian dan teknologi.</p>
+            </div>
+        </section>
+
+        <section id="program">
+            <h2>🎯 Program Keahlian TEFA</h2>
+            <p style="margin-bottom: 2rem; text-align: center; font-size: 1.1rem; color: #555;">
+                SMKN 1 Gondang memiliki fokus pada <strong>Program Keahlian Pertanian dan Teknologi Rekayasa</strong>
+            </p>
+            
+            <div class="tefa-grid">
+                <div class="tefa-card">
+                    <h3>🚗 Teknik Kendaraan Ringan Otomotif</h3>
+                    <p>Program pembelajaran perawatan, perbaikan, dan modifikasi kendaraan ringan dengan standar industri otomotif modern.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>🏍️ Teknik dan Bisnis Sepeda Motor</h3>
+                    <p>Praktik service, maintenance, dan bisnis sepeda motor sesuai standar industri dan kebutuhan pasar.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>💻 Teknik Komputer dan Jaringan</h3>
+                    <p>Pengembangan dan pemeliharaan sistem komputer, jaringan, dan infrastruktur IT sesuai kebutuhan industri digital.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>🌾 Agribisnis Tanaman Pangan dan Hortikultura</h3>
+                    <p>Pembelajaran budidaya tanaman pangan dan hortikultura dengan teknologi pertanian modern dan berorientasi agribisnis.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>🐔 Agribisnis Ternak Unggas</h3>
+                    <p>Praktik pemeliharaan dan pengembangan usaha ternak unggas dengan sistem manajemen modern dan ramah lingkungan.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>🚜 Alat Mesin Pertanian</h3>
+                    <p>Pembelajaran pengoperasian, perawatan, dan perbaikan alat-alat mesin pertanian untuk mendukung mekanisasi pertanian.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <h3>🏭 Agribisnis Pengolahan Hasil Pertanian</h3>
+                    <p>Praktik pengolahan dan pengemasan hasil pertanian menjadi produk bernilai tambah dengan standar industri pangan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="keunggulan">
+            <h2>⭐ Keunggulan TEFA SMKN 1 Gondang</h2>
+            <ul class="program-list">
+                <li><strong>🎓 Pembelajaran Berbasis Produksi</strong> - Siswa belajar sambil menghasilkan produk/layanan nyata di bidang pertanian dan teknologi</li>
+                <li><strong>🏭 Standar Industri</strong> - Semua proses mengacu pada standar operasional industri dan dunia usaha</li>
+                <li><strong>👨‍🏫 Instruktur Berpengalaman</strong> - Dibimbing oleh 82 guru profesional dan praktisi industri</li>
+                <li><strong>🔧 Peralatan Modern</strong> - Menggunakan tools, mesin, dan teknologi pertanian serta otomotif terkini</li>
+                <li><strong>💼 Kemitraan Industri</strong> - Kerjasama dengan berbagai perusahaan, DUDI, dan pelaku agribisnis</li>
+                <li><strong>🚀 Pengembangan Soft Skills</strong> - Melatih disiplin, teamwork, dan etos kerja profesional</li>
+                <li><strong>💰 Potensi Wirausaha</strong> - Mendorong jiwa entrepreneurship siswa di bidang agribisnis dan teknologi</li>
+                <li><strong>📜 Sertifikasi Kompetensi</strong> - Siswa mendapat sertifikat kompetensi dari industri dan lembaga sertifikasi</li>
+                <li><strong>🏆 Akreditasi A & ISO 9001:2000</strong> - Terjamin kualitas pendidikan dan manajemen sekolah</li>
+            </ul>
+        </section>
+
+        <section id="kontak">
+            <h2>📞 Kontak Kami</h2>
+            <div class="info-box">
+                <h3>Alamat Lengkap</h3>
+                <p><strong>SMKN 1 GONDANG</strong></p>
+                <p>JL. Raya Gondang Lengkong</p>
+                <p>Dusun: Balongrejo, RT/RW: 33/11</p>
+                <p>Desa: Balong Gebang</p>
+                <p>Kecamatan Gondang, Kabupaten Nganjuk</p>
+                <p>Provinsi Jawa Timur - 64451</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Informasi Kontak</h3>
+                <p><strong>📞 Telepon:</strong> 0358-611606</p>
+                <p><strong>📠 Fax:</strong> 0358-611606</p>
+                <p><strong>✉️ Email:</strong> smkn1gondang@yahoo.co.id</p>
+                <p><strong>🌐 Website:</strong> <a href="http://www.smkn1gondang-nganjuk.sch.id" target="_blank" style="color: #27ae60;">www.smkn1gondang-nganjuk.sch.id</a></p>
+                <p><strong>🆔 NPSN:</strong> 20513253</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Jam Operasional TEFA</h3>
+                <p><strong>Senin - Jumat:</strong> 07.00 - 16.00 WIB</p>
+                <p><strong>Sabtu:</strong> 07.00 - 14.00 WIB</p>
+                <p><strong>Minggu & Hari Libur:</strong> Tutup</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Lokasi Geografis</h3>
+                <p><strong>Koordinat:</strong> Lintang -7.5374° / Bujur 111.9876°</p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=SMKN+1+Gondang+Nganjuk" 
+                       target="_blank" 
+                       style="display: inline-block; background: #27ae60; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">
+                        📍 Lihat di Google Maps
+                    </a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TEFA SMKN 1 Gondang Nganjuk. Semua Hak Dilindungi.</p>
+        <p><strong>Membangun Generasi Kompeten di Bidang Pertanian dan Teknologi Rekayasa</strong></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            Didirikan sejak 1970 | Akreditasi A | ISO 9001:2000
+        </p>
+    </footer>
+</body>
+</html>
