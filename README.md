@@ -1,0 +1,1 @@
+# tefa.smkn1gondang
