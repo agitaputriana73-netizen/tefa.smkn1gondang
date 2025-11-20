@@ -17,6 +17,547 @@
             color: #333;
         }
 
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1001;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .fab-btn {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .fab-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .fab-btn .tooltip {
+            position: absolute;
+            left: 70px;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .fab-btn:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb3d9 0%, #ff99cc 50%, #ff66b2 100%);
+            z-index: 9999;
+            transition: width 0.2s;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9998;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Glass Morphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        body.dark-mode .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animated Gradient Background */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-bg {
+            background: linear-gradient(-45deg, #ffb3d9, #ff99cc, #ff66b2, #ffb3d9);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 179, 217, 0.5);
+            border-radius: 50%;
+            animation: float 10s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-1000px) translateX(100px); opacity: 0; }
+        }
+
+        /* Enhanced Header */
+        header {
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10%);
+            background-size: 50px 50px;
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating Labels */
+        .floating-label {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .floating-label input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ff99cc;
+            border-radius: 10px;
+            outline: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: #999;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            background: white;
+            padding: 0 0.5rem;
+            color: #ff66b2;
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 10px;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-widget::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #ff99cc;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Timeline Style for Info */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ffb3d9, #ff99cc);
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff66b2;
+            border: 3px solid white;
+            z-index: 1;
+        }
+
+        /* Card Hover Effects */
+        .tefa-card {
+            background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            color: white;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tefa-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s;
+        }
+
+        .tefa-card:hover::before {
+            transform: scale(1);
+        }
+
+        .tefa-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode section {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .info-box {
+            background: #3a3a3a;
+            border-left-color: #ff66b2;
+        }
+
+        body.dark-mode .program-list li {
+            background: #3a3a3a;
+        }
+
+        body.dark-mode nav {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode nav ul li a {
+            color: #ff99cc;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #ff99cc;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #ff66b2;
+            box-shadow: 0 0 20px rgba(255, 102, 178, 0.3);
+        }
+
+        /* Animated Counter */
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        /* Hover Effects Enhancement */
+        .tefa-card-image {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tefa-card-image:hover {
+            transform: scale(1.05);
+        }
+
         header {
             background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
             color: white;
@@ -234,211 +775,3 @@
             }
 
             nav ul {
-                flex-direction: column;
-            }
-
-            nav ul li a {
-                border-bottom: 1px solid #eee;
-            }
-
-            .tefa-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>🏭 TEFA SMKN 1 GONDANG</h1>
-            <p>Teaching Factory - Sekolah Menengah Kejuruan Negeri 1 Gondang</p>
-            <div class="header-info">
-                <p>📍 JL. Raya Gondang Lengkong, Balong Gebang, Kec. Gondang, Kab. Nganjuk, Jawa Timur</p>
-                <p>🏆 Akreditasi A | 🌟 Sertifikasi ISO 9001:2000</p>
-            </div>
-        </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#profil">Profil Sekolah</a></li>
-            <li><a href="#tentang">Tentang TEFA</a></li>
-            <li><a href="#program">Program Keahlian</a></li>
-            <li><a href="#keunggulan">Keunggulan</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <div class="hero" id="beranda">
-            <h2>Selamat Datang di TEFA SMKN 1 Gondang</h2>
-            <p>Teaching Factory adalah konsep pembelajaran berbasis produksi/layanan yang mengacu pada standar industri dan dilaksanakan dalam suasana seperti yang terjadi di industri.</p>
-        </div>
-
-        <section id="profil">
-            <h2>📖 Profil SMKN 1 Gondang</h2>
-            
-            <div class="stats">
-                <div class="stat-card">
-                    <h3>1384+</h3>
-                    <p>Siswa Aktif</p>
-                </div>
-                <div class="stat-card">
-                    <h3>82</h3>
-                    <p>Guru Profesional</p>
-                </div>
-                <div class="stat-card">
-                    <h3>7+</h3>
-                    <p>Program Keahlian</p>
-                </div>
-                <div class="stat-card">
-                    <h3>A</h3>
-                    <p>Akreditasi</p>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <h3>Tentang SMKN 1 Gondang</h3>
-                <p><strong>SMKN 1 Gondang</strong> didirikan pada tahun 1970 dan merupakan salah satu Sekolah Menengah Kejuruan terkemuka di Kabupaten Nganjuk. Dengan akreditasi A dan sertifikasi ISO 9001:2000, sekolah ini berkomitmen memberikan pendidikan kejuruan berkualitas yang mempersiapkan lulusan siap kerja dan berdaya saing tinggi.</p>
-            </div>
-
-            <div class="info-box">
-                <h3>Kepemimpinan</h3>
-                <p><strong>Kepala Sekolah:</strong> Eko Cahyono</p>
-                <p><strong>Operator:</strong> Kushanto</p>
-            </div>
-        </section>
-
-        <section id="tentang">
-            <h2>📚 Tentang TEFA</h2>
-            <p>Teaching Factory (TEFA) di SMKN 1 Gondang adalah program pembelajaran inovatif yang memadukan proses pendidikan dengan pengalaman kerja nyata di lingkungan yang menyerupai industri.</p>
-            
-            <div class="info-box">
-                <h3>Visi TEFA</h3>
-                <p>Menjadi pusat pembelajaran berbasis industri yang menghasilkan lulusan kompeten, profesional, dan siap bersaing di dunia kerja global dengan mengedepankan bidang pertanian dan teknologi rekayasa.</p>
-            </div>
-
-            <div class="info-box">
-                <h3>Misi TEFA</h3>
-                <p>Menyelenggarakan pembelajaran yang berorientasi pada produksi dan layanan sesuai standar industri, mengembangkan jiwa kewirausahaan siswa, dan membangun kemitraan dengan dunia usaha dan industri di bidang pertanian dan teknologi.</p>
-            </div>
-        </section>
-
-        <section id="program">
-            <h2>🎯 Program Keahlian TEFA</h2>
-            <p style="margin-bottom: 2rem; text-align: center; font-size: 1.1rem; color: #555;">
-                SMKN 1 Gondang memiliki fokus pada <strong>Program Keahlian Pertanian dan Teknologi Rekayasa</strong>
-            </p>
-            
-            <div class="tefa-grid">
-                <div class="tefa-card">
-                    <img src="tkr.jpg.jpeg" alt="Teknik Kendaraan Ringan" class="tefa-card-image">
-                    <h3>🚗 Teknik Kendaraan Ringan Otomotif</h3>
-                    <p>Program pembelajaran perawatan, perbaikan, dan modifikasi kendaraan ringan dengan standar industri otomotif modern.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="tsm.jpg.jpeg" alt="Teknik Sepeda Motor" class="tefa-card-image">
-                    <h3>🏍️ Teknik dan Bisnis Sepeda Motor</h3>
-                    <p>Praktik service, maintenance, dan bisnis sepeda motor sesuai standar industri dan kebutuhan pasar.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="tkj.jpg.jpeg" alt="Teknik Komputer Jaringan" class="tefa-card-image">
-                    <h3>💻 Teknik Komputer dan Jaringan</h3>
-                    <p>Pengembangan dan pemeliharaan sistem komputer, jaringan, dan infrastruktur IT sesuai kebutuhan industri digital.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="atph.jpg.jpeg" alt="Agribisnis Tanaman Pangan" class="tefa-card-image">
-                    <h3>🌾 Agribisnis Tanaman Pangan dan Hortikultura</h3>
-                    <p>Pembelajaran budidaya tanaman pangan dan hortikultura dengan teknologi pertanian modern dan berorientasi agribisnis.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="atu.jpg.jpeg" alt="Agribisnis Ternak Unggas" class="tefa-card-image">
-                    <h3>🐔 Agribisnis Ternak Unggas</h3>
-                    <p>Praktik pemeliharaan dan pengembangan usaha ternak unggas dengan sistem manajemen modern dan ramah lingkungan.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="mp.jpg.jpeg" alt="Alat Mesin Pertanian" class="tefa-card-image">
-                    <h3>🚜 Alat Mesin Pertanian</h3>
-                    <p>Pembelajaran pengoperasian, perawatan, dan perbaikan alat-alat mesin pertanian untuk mendukung mekanisasi pertanian.</p>
-                </div>
-                
-                <div class="tefa-card">
-                    <img src="aphp.jpg.jpeg" alt="Pengolahan Hasil Pertanian" class="tefa-card-image">
-                    <h3>🏭 Agribisnis Pengolahan Hasil Pertanian</h3>
-                    <p>Praktik pengolahan dan pengemasan hasil pertanian menjadi produk bernilai tambah dengan standar industri pangan.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="keunggulan">
-            <h2>⭐ Keunggulan TEFA SMKN 1 Gondang</h2>
-            <ul class="program-list">
-                <li><strong>🎓 Pembelajaran Berbasis Produksi</strong> - Siswa belajar sambil menghasilkan produk/layanan nyata di bidang pertanian dan teknologi</li>
-                <li><strong>🏭 Standar Industri</strong> - Semua proses mengacu pada standar operasional industri dan dunia usaha</li>
-                <li><strong>👨‍🏫 Instruktur Berpengalaman</strong> - Dibimbing oleh 82 guru profesional dan praktisi industri</li>
-                <li><strong>🔧 Peralatan Modern</strong> - Menggunakan tools, mesin, dan teknologi pertanian serta otomotif terkini</li>
-                <li><strong>💼 Kemitraan Industri</strong> - Kerjasama dengan berbagai perusahaan, DUDI, dan pelaku agribisnis</li>
-                <li><strong>🚀 Pengembangan Soft Skills</strong> - Melatih disiplin, teamwork, dan etos kerja profesional</li>
-                <li><strong>💰 Potensi Wirausaha</strong> - Mendorong jiwa entrepreneurship siswa di bidang agribisnis dan teknologi</li>
-                <li><strong>📜 Sertifikasi Kompetensi</strong> - Siswa mendapat sertifikat kompetensi dari industri dan lembaga sertifikasi</li>
-                <li><strong>🏆 Akreditasi A & ISO 9001:2000</strong> - Terjamin kualitas pendidikan dan manajemen sekolah</li>
-            </ul>
-        </section>
-
-        <section id="kontak">
-            <h2>📞 Kontak Kami</h2>
-            <div class="info-box">
-                <h3>Alamat Lengkap</h3>
-                <p><strong>SMKN 1 GONDANG</strong></p>
-                <p>JL. Raya Gondang Lengkong</p>
-                <p>Dusun: Balongrejo, RT/RW: 33/11</p>
-                <p>Desa: Balong Gebang</p>
-                <p>Kecamatan Gondang, Kabupaten Nganjuk</p>
-                <p>Provinsi Jawa Timur - 64451</p>
-            </div>
-            
-            <div class="info-box">
-                <h3>Informasi Kontak</h3>
-                <p><strong>📞 Telepon:</strong> 0358-611606</p>
-                <p><strong>📠 Fax:</strong> 0358-611606</p>
-                <p><strong>✉️ Email:</strong> smkn1gondang@yahoo.co.id</p>
-                <p><strong>🌐 Website:</strong> <a href="http://www.smkn1gondang-nganjuk.sch.id" target="_blank" style="color: #ff66b2;">www.smkn1gondang-nganjuk.sch.id</a></p>
-                <p><strong>🆔 NPSN:</strong> 20513253</p>
-            </div>
-            
-            <div class="info-box">
-                <h3>Jam Operasional TEFA</h3>
-                <p><strong>Senin - Jumat:</strong> 07.00 - 16.00 WIB</p>
-                <p><strong>Sabtu:</strong> 07.00 - 14.00 WIB</p>
-                <p><strong>Minggu & Hari Libur:</strong> Tutup</p>
-            </div>
-
-            <div class="info-box">
-                <h3>Lokasi Geografis</h3>
-                <p><strong>Koordinat:</strong> Lintang -7.5374° / Bujur 111.9876°</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=SMKN+1+Gondang+Nganjuk" 
-                       target="_blank" 
-                       style="display: inline-block; background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">
-                        📍 Lihat di Google Maps
-                    </a>
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 TEFA SMKN 1 Gondang Nganjuk. Semua Hak Dilindungi.</p>
-        <p><strong>Membangun Generasi Kompeten di Bidang Pertanian dan Teknologi Rekayasa</strong></p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-            Didirikan sejak 1970 | Akreditasi A | ISO 9001:2000
-        </p>
-    </footer>
-</body>
-</html>
