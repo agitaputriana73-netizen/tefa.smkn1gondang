@@ -789,20 +789,50 @@
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <strong>🎉 Selamat Datang!</strong><br>
+        Website TEFA SMKN 1 Gondang
+    </div>
+
     <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
+    <button class="dark-mode-toggle ripple" id="darkModeToggle" aria-label="Toggle Dark Mode">
         🌙
     </button>
 
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button class="fab-btn ripple" id="shareBtn" aria-label="Share">
+            📤
+            <span class="tooltip">Bagikan</span>
+        </button>
+        <button class="fab-btn ripple" id="printBtn" aria-label="Print">
+            🖨️
+            <span class="tooltip">Cetak</span>
+        </button>
+        <button class="fab-btn ripple" id="downloadBtn" aria-label="Download">
+            💾
+            <span class="tooltip">Simpan</span>
+        </button>
+    </div>
+
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <button class="back-to-top ripple" id="backToTop" aria-label="Back to Top">
         ↑
     </button>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        💬
+    </div>
 
     <!-- Image Modal -->
     <div class="modal" id="imageModal">
@@ -810,8 +840,10 @@
         <img class="modal-content" id="modalImage" alt="Enlarged view">
     </div>
 
-    <header>
+    <header class="animated-bg">
+        <div class="particles" id="particles"></div>
         <div class="header-content">
+             <img src="logo.jpg.jpeg" alt="Logo SMKN 1 Gondang" class="school-logo" id="schoolLogo">
             <h1>🏭 TEFA SMKN 1 GONDANG</h1>
             <p>Teaching Factory - Sekolah Menengah Kejuruan Negeri 1 Gondang</p>
             <div class="header-info">
@@ -1009,10 +1041,37 @@
     </footer>
 
     <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Particles Background
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
         // Loading Screen
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loading').classList.add('hidden');
+                // Show welcome toast
+                setTimeout(() => {
+                    const toast = document.getElementById('toast');
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 3000);
+                }, 500);
             }, 1000);
         });
 
@@ -1032,11 +1091,23 @@
             if (body.classList.contains('dark-mode')) {
                 darkModeToggle.textContent = '☀️';
                 localStorage.setItem('darkMode', 'enabled');
+                showToast('Dark Mode Aktif 🌙');
             } else {
                 darkModeToggle.textContent = '🌙';
                 localStorage.setItem('darkMode', 'disabled');
+                showToast('Light Mode Aktif ☀️');
             }
         });
+
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerHTML = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
 
         // Back to Top Button
         const backToTop = document.getElementById('backToTop');
@@ -1051,6 +1122,70 @@
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Share Button
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'TEFA SMKN 1 Gondang',
+                        text: 'Lihat website TEFA SMKN 1 Gondang - Teaching Factory',
+                        url: window.location.href
+                    });
+                    showToast('Berhasil dibagikan! 📤');
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                showToast('Link disalin ke clipboard! 📋');
+            }
+        });
+
+        // Print Button
+        document.getElementById('printBtn').addEventListener('click', () => {
+            window.print();
+            showToast('Mempersiapkan untuk cetak... 🖨️');
+        });
+
+        // Download Button (Save page info)
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const pageInfo = `
+TEFA SMKN 1 GONDANG NGANJUK
+================================
+Website: ${window.location.href}
+Tanggal: ${new Date().toLocaleDateString('id-ID')}
+
+KONTAK:
+Telepon: 0358-611606
+Email: smkn1gondang@yahoo.co.id
+Alamat: JL. Raya Gondang Lengkong, Balong Gebang, Gondang, Nganjuk
+
+PROGRAM KEAHLIAN:
+1. Teknik Kendaraan Ringan Otomotif
+2. Teknik dan Bisnis Sepeda Motor
+3. Teknik Komputer dan Jaringan
+4. Agribisnis Tanaman Pangan dan Hortikultura
+5. Agribisnis Ternak Unggas
+6. Alat Mesin Pertanian
+7. Agribisnis Pengolahan Hasil Pertanian
+            `;
+            const blob = new Blob([pageInfo], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'TEFA_SMKN1_Gondang_Info.txt';
+            a.click();
+            showToast('File info berhasil disimpan! 💾');
+        });
+
+        // Chat Widget
+        document.getElementById('chatWidget').addEventListener('click', () => {
+            const whatsappNumber = '6285xxxxxxxx'; // Ganti dengan nomor WA sekolah
+            const message = 'Halo, saya ingin bertanya tentang TEFA SMKN 1 Gondang';
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
         });
 
         // Animated Counter
@@ -1177,6 +1312,45 @@
             el.style.transition = 'opacity 0.6s, transform 0.6s';
             fadeObserver.observe(el);
         });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K for search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchBox.focus();
+                showToast('Ketik untuk mencari... 🔍');
+            }
+            // Ctrl/Cmd + D for dark mode
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                e.preventDefault();
+                darkModeToggle.click();
+            }
+        });
+
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                showToast('🎮 Konami Code Activated! 🎉');
+                document.body.style.animation = 'rainbow 3s linear';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 3000);
+            }
+        });
     </script>
+
+    <style>
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+    </style>
 </body>
 </html>
