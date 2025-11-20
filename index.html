@@ -124,11 +124,14 @@
 
         .tefa-card-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            min-height: 200px;
+            max-height: 300px;
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: 1rem;
             border: 3px solid rgba(255, 255, 255, 0.5);
+            background: white;
         }
 
         .tefa-card h3 {
