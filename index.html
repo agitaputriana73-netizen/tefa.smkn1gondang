@@ -775,3 +775,408 @@
             }
 
             nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li a {
+                border-bottom: 1px solid #eee;
+            }
+
+            .tefa-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
+        🌙
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        ↑
+    </button>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Enlarged view">
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1>🏭 TEFA SMKN 1 GONDANG</h1>
+            <p>Teaching Factory - Sekolah Menengah Kejuruan Negeri 1 Gondang</p>
+            <div class="header-info">
+                <p>📍 JL. Raya Gondang Lengkong, Balong Gebang, Kec. Gondang, Kab. Nganjuk, Jawa Timur</p>
+                <p>🏆 Akreditasi A | 🌟 Sertifikasi ISO 9001:2000</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil Sekolah</a></li>
+            <li><a href="#tentang">Tentang TEFA</a></li>
+            <li><a href="#program">Program Keahlian</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Cari program keahlian, informasi, atau kontak...">
+        </div>
+
+        <div class="hero" id="beranda">
+            <h2>Selamat Datang di TEFA SMKN 1 Gondang</h2>
+            <p>Teaching Factory adalah konsep pembelajaran berbasis produksi/layanan yang mengacu pada standar industri dan dilaksanakan dalam suasana seperti yang terjadi di industri.</p>
+        </div>
+
+        <section id="profil">
+            <h2>📖 Profil SMKN 1 Gondang</h2>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="1384">0</h3>
+                    <p>Siswa Aktif</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="counter" data-target="82">0</h3>
+                    <p>Guru Profesional</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="counter" data-target="7">0</h3>
+                    <p>Program Keahlian</p>
+                </div>
+                <div class="stat-card">
+                    <h3>A</h3>
+                    <p>Akreditasi</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Tentang SMKN 1 Gondang</h3>
+                <p><strong>SMKN 1 Gondang</strong> didirikan pada tahun 1970 dan merupakan salah satu Sekolah Menengah Kejuruan terkemuka di Kabupaten Nganjuk. Dengan akreditasi A dan sertifikasi ISO 9001:2000, sekolah ini berkomitmen memberikan pendidikan kejuruan berkualitas yang mempersiapkan lulusan siap kerja dan berdaya saing tinggi.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Kepemimpinan</h3>
+                <p><strong>Kepala Sekolah:</strong> Eko Cahyono</p>
+                <p><strong>Operator:</strong> Kushanto</p>
+            </div>
+        </section>
+
+        <section id="tentang">
+            <h2>📚 Tentang TEFA</h2>
+            <p>Teaching Factory (TEFA) di SMKN 1 Gondang adalah program pembelajaran inovatif yang memadukan proses pendidikan dengan pengalaman kerja nyata di lingkungan yang menyerupai industri.</p>
+            
+            <div class="info-box">
+                <h3>Visi TEFA</h3>
+                <p>Menjadi pusat pembelajaran berbasis industri yang menghasilkan lulusan kompeten, profesional, dan siap bersaing di dunia kerja global dengan mengedepankan bidang pertanian dan teknologi rekayasa.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Misi TEFA</h3>
+                <p>Menyelenggarakan pembelajaran yang berorientasi pada produksi dan layanan sesuai standar industri, mengembangkan jiwa kewirausahaan siswa, dan membangun kemitraan dengan dunia usaha dan industri di bidang pertanian dan teknologi.</p>
+            </div>
+        </section>
+
+        <section id="program">
+            <h2>🎯 Program Keahlian TEFA</h2>
+            <p style="margin-bottom: 2rem; text-align: center; font-size: 1.1rem; color: #555;">
+                SMKN 1 Gondang memiliki fokus pada <strong>Program Keahlian Pertanian dan Teknologi Rekayasa</strong>
+            </p>
+            
+            <div class="tefa-grid">
+                <div class="tefa-card">
+                    <img src="tkr.jpg.jpeg" alt="Teknik Kendaraan Ringan" class="tefa-card-image">
+                    <h3>🚗 Teknik Kendaraan Ringan Otomotif</h3>
+                    <p>Program pembelajaran perawatan, perbaikan, dan modifikasi kendaraan ringan dengan standar industri otomotif modern.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="tsm.jpg.jpeg" alt="Teknik Sepeda Motor" class="tefa-card-image">
+                    <h3>🏍️ Teknik dan Bisnis Sepeda Motor</h3>
+                    <p>Praktik service, maintenance, dan bisnis sepeda motor sesuai standar industri dan kebutuhan pasar.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="tkj.jpg.jpeg" alt="Teknik Komputer Jaringan" class="tefa-card-image">
+                    <h3>💻 Teknik Komputer dan Jaringan</h3>
+                    <p>Pengembangan dan pemeliharaan sistem komputer, jaringan, dan infrastruktur IT sesuai kebutuhan industri digital.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="atph.jpg.jpeg" alt="Agribisnis Tanaman Pangan" class="tefa-card-image">
+                    <h3>🌾 Agribisnis Tanaman Pangan dan Hortikultura</h3>
+                    <p>Pembelajaran budidaya tanaman pangan dan hortikultura dengan teknologi pertanian modern dan berorientasi agribisnis.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="atu.jpg.jpeg" alt="Agribisnis Ternak Unggas" class="tefa-card-image">
+                    <h3>🐔 Agribisnis Ternak Unggas</h3>
+                    <p>Praktik pemeliharaan dan pengembangan usaha ternak unggas dengan sistem manajemen modern dan ramah lingkungan.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="mp.jpg.jpeg" alt="Alat Mesin Pertanian" class="tefa-card-image">
+                    <h3>🚜 Alat Mesin Pertanian</h3>
+                    <p>Pembelajaran pengoperasian, perawatan, dan perbaikan alat-alat mesin pertanian untuk mendukung mekanisasi pertanian.</p>
+                </div>
+                
+                <div class="tefa-card">
+                    <img src="aphp.jpg.jpeg" alt="Pengolahan Hasil Pertanian" class="tefa-card-image">
+                    <h3>🏭 Agribisnis Pengolahan Hasil Pertanian</h3>
+                    <p>Praktik pengolahan dan pengemasan hasil pertanian menjadi produk bernilai tambah dengan standar industri pangan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="keunggulan">
+            <h2>⭐ Keunggulan TEFA SMKN 1 Gondang</h2>
+            <ul class="program-list">
+                <li><strong>🎓 Pembelajaran Berbasis Produksi</strong> - Siswa belajar sambil menghasilkan produk/layanan nyata di bidang pertanian dan teknologi</li>
+                <li><strong>🏭 Standar Industri</strong> - Semua proses mengacu pada standar operasional industri dan dunia usaha</li>
+                <li><strong>👨‍🏫 Instruktur Berpengalaman</strong> - Dibimbing oleh 82 guru profesional dan praktisi industri</li>
+                <li><strong>🔧 Peralatan Modern</strong> - Menggunakan tools, mesin, dan teknologi pertanian serta otomotif terkini</li>
+                <li><strong>💼 Kemitraan Industri</strong> - Kerjasama dengan berbagai perusahaan, DUDI, dan pelaku agribisnis</li>
+                <li><strong>🚀 Pengembangan Soft Skills</strong> - Melatih disiplin, teamwork, dan etos kerja profesional</li>
+                <li><strong>💰 Potensi Wirausaha</strong> - Mendorong jiwa entrepreneurship siswa di bidang agribisnis dan teknologi</li>
+                <li><strong>📜 Sertifikasi Kompetensi</strong> - Siswa mendapat sertifikat kompetensi dari industri dan lembaga sertifikasi</li>
+                <li><strong>🏆 Akreditasi A & ISO 9001:2000</strong> - Terjamin kualitas pendidikan dan manajemen sekolah</li>
+            </ul>
+        </section>
+
+        <section id="kontak">
+            <h2>📞 Kontak Kami</h2>
+            <div class="info-box">
+                <h3>Alamat Lengkap</h3>
+                <p><strong>SMKN 1 GONDANG</strong></p>
+                <p>JL. Raya Gondang Lengkong</p>
+                <p>Dusun: Balongrejo, RT/RW: 33/11</p>
+                <p>Desa: Balong Gebang</p>
+                <p>Kecamatan Gondang, Kabupaten Nganjuk</p>
+                <p>Provinsi Jawa Timur - 64451</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Informasi Kontak</h3>
+                <p><strong>📞 Telepon:</strong> 0358-611606</p>
+                <p><strong>📠 Fax:</strong> 0358-611606</p>
+                <p><strong>✉️ Email:</strong> smkn1gondang@yahoo.co.id</p>
+                <p><strong>🌐 Website:</strong> <a href="http://www.smkn1gondang-nganjuk.sch.id" target="_blank" style="color: #ff66b2;">www.smkn1gondang-nganjuk.sch.id</a></p>
+                <p><strong>🆔 NPSN:</strong> 20513253</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Jam Operasional TEFA</h3>
+                <p><strong>Senin - Jumat:</strong> 07.00 - 16.00 WIB</p>
+                <p><strong>Sabtu:</strong> 07.00 - 14.00 WIB</p>
+                <p><strong>Minggu & Hari Libur:</strong> Tutup</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Lokasi Geografis</h3>
+                <p><strong>Koordinat:</strong> Lintang -7.5374° / Bujur 111.9876°</p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=SMKN+1+Gondang+Nganjuk" 
+                       target="_blank" 
+                       style="display: inline-block; background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">
+                        📍 Lihat di Google Maps
+                    </a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TEFA SMKN 1 Gondang Nganjuk. Semua Hak Dilindungi.</p>
+        <p><strong>Membangun Generasi Kompeten di Bidang Pertanian dan Teknologi Rekayasa</strong></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            Didirikan sejak 1970 | Akreditasi A | ISO 9001:2000
+        </p>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Load saved preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = '☀️';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeToggle.textContent = '🌙';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated Counter
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current) + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+
+                updateCounter();
+            });
+        };
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) observer.observe(statsSection);
+
+        // Image Modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const images = document.querySelectorAll('.tefa-card-image');
+
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Search Functionality
+        const searchBox = document.getElementById('searchBox');
+        const sections = document.querySelectorAll('section');
+
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                const cards = section.querySelectorAll('.tefa-card, .program-list li, .info-box');
+                
+                if (searchTerm === '') {
+                    section.style.display = '';
+                    cards.forEach(card => card.style.display = '');
+                    return;
+                }
+
+                let hasMatch = false;
+                cards.forEach(card => {
+                    if (card.textContent.toLowerCase().includes(searchTerm)) {
+                        card.style.display = '';
+                        hasMatch = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                section.style.display = hasMatch || text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.tefa-card, .info-box, .stat-card');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            fadeObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
